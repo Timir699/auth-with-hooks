@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
+
 
 const Login = () => {
-    const { signInWithGoogle, user } = useFirebase()
+    const { signInWithGoogle } = useAuth()
     return (
         <div>
             <h2>login</h2>
-            <button onClick={() => {
-                user?.email && signInWithGoogle()
-            }}>sign in with google</button>
+            <button onClick={signInWithGoogle}>sign in with google</button>
             <br />
             <Link to="/Register">new user?</Link>
         </div>
